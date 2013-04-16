@@ -1,0 +1,26 @@
+﻿<div>
+    <h3>Filtering the Servers</h3>
+    
+    <tabs>
+        <pane title="HTML">
+            <p>Apply a filter to a repeater expression.  Multiple filters can be chained using pipes.</p>
+            <snippet src="partials/home.html" from="19" to="19"></snippet>
+            
+            <p>Repeater will operate on the outerHTML of the repeating element, which includes the element itself.</p>
+            <snippet src="partials/home.html" from="19" to="30"></snippet>
+            
+            <p>The minLatency variable for the filter is declared in the markup for the text box.  For production code it might be best to have this property set by the controller, the declared approach works well for rapid prototyping.</p>
+            <snippet src="partials/home.html" from="5" to="6"></snippet>
+        </pane>
+        <pane title="JS">
+            <p>A filter's factory method should return the function used to implement the filter.</p>
+            <p>The filter method always takes an array of values to filter as it's first parameter.  Other parameters may be passed in, declared by chaining values with a colon.</p>
+            <p>In this example</p>
+            <snippet src="js/filters.js" from="7" to="7"></snippet>
+            <p>Equates to the "min:'latency':minLatency" portion of the markup declaration.</p>
+            <p>Full filter:</p>
+            <snippet src="js/filters.js" from="5" to="16"></snippet>
+        </pane>
+    </tabs>
+
+</div>

@@ -1,0 +1,12 @@
+﻿.col-server-status {
+    min-width: 100px;
+}
+.col-server-latency {
+    min-width: 300px
+}
+input.min-latency {
+    margin-bottom: 0;
+}
+pre {
+    margin-bottom: 30px;
+}

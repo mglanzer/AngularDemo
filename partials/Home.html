@@ -1,0 +1,39 @@
+﻿<h3>Home</h3>
+
+<tabs>
+    <pane title="Server Monitor">
+        <form>
+            <fieldset>
+                <label>Min Latency</label>
+                <input class="min-latency input-medium" type="text" ng-init="minLatency = 0" ng-model="minLatency">
+                <button class="btn" type="button" ng-click="minLatency = 0">Clear</button>
+            </fieldset>
+        </form>
+        <table class="table table-striped">
+            <caption>Monitoring latency of {{ onlineServerCount() }} servers</caption>
+            <thead>
+                <tr>
+                    <th><a href="" ng-click="sortServer = 'name'; serverReverse = !serverReverse">Server</a></th>
+                    <th><a href="" ng-click="sortServer = 'status'; serverReverse = !serverReverse">Status</a></th>
+                    <th><a href="" ng-click="sortServer = 'latency'; serverReverse = !serverReverse">Latency</a></th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tr ng-repeat="server in servers | min:'latency':minLatency | orderBy:sortServer:serverReverse">
+                <td><strong>{{ server.name }}</strong></td>
+                <td class="col-server-status">
+                    <span class="{{ statusLabel(server) }}">{{ server.status }}</span>
+                </td>
+                <td class="col-server-latency">
+                    {{ server.latency }}
+                </td>
+                <td>
+                    <button class="btn" type="button" ng-click="toggleOffline(server)">{{ toggleStatusLabel(server) }}</button>
+                </td>
+            </tr>    
+        </table>
+    </pane>
+    <pane title="Markup">
+        <snippet src="partials/home.html" from="1" to="39"></snippet>
+    </pane>
+</tabs>
